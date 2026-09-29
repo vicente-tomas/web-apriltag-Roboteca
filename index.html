@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Juego Soft Robot 🤖</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20260928-1">
+</head>
+<body>
+    <main>
+        <header class="hero">
+            <img class="site-logo" src="assets/logoroboteca.png" alt="Roboteca">
+
+            <div class="hero-copy">
+                <span class="mission-badge">MINI JUEGO</span>
+                <h1>SOFT ROBOT</h1>
+                <p>¡Mueve tu robot y dibuja una ruta con el AprilTag!</p>
+            </div>
+        </header>
+
+        <section class="game-stage" aria-label="Mini juego Soft Robot">
+            <img class="decor-robot robot-top-left" src="assets/softrobot.png" alt="" aria-hidden="true">
+            <img class="decor-robot robot-top-right" src="assets/softrobot.png" alt="" aria-hidden="true">
+            <img class="decor-robot robot-bottom-left" src="assets/softrobot.png" alt="" aria-hidden="true">
+            <img class="decor-robot robot-bottom-right" src="assets/softrobot.png" alt="" aria-hidden="true">
+            <img class="decor-robot robot-bottom-center" src="assets/softrobot.png" alt="" aria-hidden="true">
+
+            <div class="game-panel">
+                <div class="game-heading">
+                    <span class="game-kicker">TU MINI JUEGO</span>
+                    <h2>SOFT ROBOT</h2>
+                    <p>Encuentra el marcador y lleva el robot hasta la meta.</p>
+                </div>
+
+                <section class="camera-card" aria-label="Cámara y recorrido del robot">
+                    <div class="camera-status"><span class="status-light"></span> CÁMARA EN VIVO</div>
+                    <video id="camera-stream" autoplay playsinline muted></video>
+                    <canvas id="output-canvas"></canvas>
+                    <canvas id="trail-canvas" aria-hidden="true"></canvas>
+                    <div class="camera-hint">Busca el marcador <strong>36h11 · ID 0</strong></div>
+                </section>
+
+                <div class="controls">
+                    <button id="clear-trail" type="button">Nueva misión 🚀</button>
+                </div>
+
+                <section id="info-panel" aria-live="polite">
+                    <article class="info-card tag-card">
+                        <h2>Estado del robot</h2>
+                        <pre id="tag-data">Preparando detector...</pre>
+                    </article>
+                    <article class="info-card camera-data-card">
+                        <h2>Datos de la cámara</h2>
+                        <pre id="camera-data">Solicitando permiso...</pre>
+                    </article>
+                </section>
+            </div>
+        </section>
+
+        <footer class="sponsors" aria-label="Instituciones participantes">
+            <img src="assets/huincha logos.png" alt="Financiado por Ministerio de Ciencia y Ciencia Pública. Desarrollado por Centro de Comunicación de las Ciencias y Universidad Autónoma de Chile.">
+        </footer>
+    </main>
+
+    <div id="mission-modal" class="mission-modal" role="dialog" aria-modal="true" aria-labelledby="mission-title" hidden>
+        <div class="mission-modal-card">
+            <div class="celebration">🏆✨🤖✨🏆</div>
+            <h2 id="mission-title">¡Misión completada!</h2>
+            <p>¡El robot llegó hasta la meta!</p>
+            <button id="next-mission" type="button">Otra misión 🚀</button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/comlink/dist/umd/comlink.js"></script>
+    <script src="app.js?v=20260928-1"></script>
+</body>
+</html>
